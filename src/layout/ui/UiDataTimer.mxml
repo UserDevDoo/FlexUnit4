@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="400" height="300"
+		 creationComplete="create(event)">
+	
+	<fx:Metadata>
+		[Event(name="save", type="flash.events.Event")]
+	</fx:Metadata>
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			protected function handleLoginClick( event:Event ):void 
+			{
+				dispatchEvent( new Event( 'save' ) );	
+			}
+			
+			protected function create(event:FlexEvent):void
+			{
+			}
+			
+			//Testa TiText
+			public function get data():String
+			{
+				return tiData.text;
+			}
+
+			public function set data(value:String):void
+			{
+				tiData.text = value;
+			}
+			
+			//Teste de usuário ativo
+			private var _userIsActive:Boolean = false;
+
+			public function get userIsActive():Boolean
+			{
+				return _userIsActive;
+			}
+
+			public function set userIsActive(value:Boolean):void
+			{
+				_userIsActive = value;
+			}
+			
+			//Teste de idade obrigatória
+			public function get age():String
+			{
+				return tiAge.text;
+			}
+			
+			public function set age(value:String):void
+			{
+				tiAge.text = value;
+			}
+			
+			
+			
+		]]>
+	</fx:Script>
+	<s:TextInput id="tiData" x="10" y="10"/>
+	<s:TextInput id="tiAge" x="20" y="10"/>
+	<s:Button id="btSave" x="10" y="59" label="Salvar" click="handleLoginClick( event )"/>
+	
+
+</s:Group>
